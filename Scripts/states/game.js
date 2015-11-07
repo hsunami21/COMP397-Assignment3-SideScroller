@@ -14,11 +14,16 @@ var states;
         }
         // PUBLIC METHODS
         Game.prototype.start = function () {
+            // add background to scene
+            this.background = new objects.Background();
+            this.addChild(this.background);
+            // add player to scene
             this.player = new objects.Player();
             this.addChild(this.player);
             stage.addChild(this);
         };
         Game.prototype.update = function () {
+            this.background.update();
             this.player.update();
         };
         return Game;

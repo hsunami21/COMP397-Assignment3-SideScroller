@@ -9,6 +9,7 @@
 /// <reference path="../typings/preloadjs/preloadjs.d.ts" />
 
 /// <reference path="../objects/gameobject.ts" />
+/// <reference path="../objects/background.ts" />
 /// <reference path="../objects/player.ts" />
 /// <reference path="../objects/label.ts" />
 /// <reference path="../objects/button.ts" />
@@ -66,7 +67,7 @@ var data = {
 // manifest of all our assets
 var manifest = [
     { id: "StartButton", src: "../../Assets/images/StartButton.png" },
-    { id: "background", src: "../../Assets/images/bg_layer2.png" },
+    { id: "background", src: "../../Assets/images/bg.jpg" },
     { id: "game_over", src: "../../Assets/audio/game_over.ogg" },
     { id: "coin", src: "../../Assets/audio/zapThreeToneUp.mp3" }
 ];
