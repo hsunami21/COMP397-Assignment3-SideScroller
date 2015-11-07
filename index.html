@@ -3,14 +3,14 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>COMP397 - CreateJS - BoilerPlate - F2015</title>
+    <title>FlyMan Side Scroller - Wendall Hsu</title>
     <!-- CSS Section -->
     <link href="Content/reset.css" rel="stylesheet" />
     <link href="Content/game.css" rel="stylesheet" />
 </head>
 <body onload="preload();">
     <div class="game">
-        <canvas id="canvas" width="640" height="480"></canvas>
+        <canvas id="canvas" width="1100" height="600"></canvas>
     </div>
 
     <!-- JavaScript Libraries-->
@@ -24,10 +24,13 @@
 
     <!-- Game Scripts -->
     <script src="Scripts/config/config.js"></script>
+    <script src="Scripts/objects/gameobject.js"></script>
+    <script src="Scripts/objects/player.js"></script>
     <script src="Scripts/objects/label.js"></script>
     <script src="Scripts/objects/button.js"></script>
     <script src="Scripts/objects/scene.js"></script>
 
+    <!-- Game Scenes -->
     <script src="Scripts/states/over.js"></script>
     <script src="Scripts/states/game.js"></script>
     <script src="Scripts/states/menu.js"></script>

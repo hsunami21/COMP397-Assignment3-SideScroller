@@ -8,6 +8,8 @@
 /// <reference path="../typings/soundjs/soundjs.d.ts" />
 /// <reference path="../typings/preloadjs/preloadjs.d.ts" />
 
+/// <reference path="../objects/gameobject.ts" />
+/// <reference path="../objects/player.ts" />
 /// <reference path="../objects/label.ts" />
 /// <reference path="../objects/button.ts" />
 /// <reference path="../objects/scene.ts" />
@@ -24,18 +26,49 @@ var stage: createjs.Stage;
 var stats: Stats;
 var state: number;
 var currentState: objects.Scene; // alias for our current state
+var atlas: createjs.SpriteSheet; // sprite atlas
 
 // GAME OBJECTS
 var menu: states.Menu;
 var game: states.Game;
 var over: states.Over;
 
+var data = {
+
+"images": [
+    "../../Assets/images/atlas.png"
+],
+
+"frames": [
+    [1, 1, 148, 142, 0, 0, 0],
+    [1, 145, 78, 70, 0, 0, 0],
+    [81, 145, 150, 50, 0, 0, 0],
+    [151, 1, 260, 134, 0, 0, 0],
+    [413, 1, 120, 132, 0, 0, 0],
+    [233, 137, 84, 84, 0, 0, 0],
+    [319, 137, 84, 84, 0, 0, 0],
+    [405, 137, 84, 84, 0, 0, 0]
+],
+
+"animations": {
+    "sun2": [0],
+    "carrot": [1],
+    "StartButton": [2],
+    "cloud": [3],
+    "flyMan_still_fly": [4],
+    "bronze": [5],
+    "gold": [6],
+    "silver": [7]
+}
+
+};
+
 // manifest of all our assets
 var manifest = [
-    { id: "BackButton", src: "../../Assets/images/BackButton.png" },
-    { id: "NextButton", src: "../../Assets/images/NextButton.png" },
     { id: "StartButton", src: "../../Assets/images/StartButton.png" },
-    { id: "yay", src: "../../Assets/audio/yay.ogg" }
+    { id: "background", src: "../../Assets/images/bg_layer2.png" },
+    { id: "game_over", src: "../../Assets/audio/game_over.ogg" },
+    { id: "coin", src: "../../Assets/audio/zapThreeToneUp.mp3" }
 ];
 
 function preload(): void {
@@ -43,6 +76,9 @@ function preload(): void {
     assets.installPlugin(createjs.Sound);
     assets.on("complete", init, this);
     assets.loadManifest(manifest);
+    
+    // spritesheet is configured
+    atlas = new createjs.SpriteSheet(data);
 }
 
 function init():void {

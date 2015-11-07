@@ -14,13 +14,13 @@ var states;
         }
         // PUBLIC METHODS
         Menu.prototype.start = function () {
-            // hello label
-            this._helloLabel = new objects.Label("Game Start", "60px Consolas", "#000000", 320, 240);
-            this.addChild(this._helloLabel); // add label to the stage
+            // fly man label
+            this.lblFlyMan = new objects.Label("FLY MAN", "60px Consolas", "#000000", 350, 240);
+            this.addChild(this.lblFlyMan); // add label to the stage
             // start button
-            this._startButton = new objects.Button("StartButton", 320, 340);
-            this._startButton.on("click", this._clickStartButton, this); // event listener
-            this.addChild(this._startButton);
+            this.startButton = new objects.Button("StartButton", 350, 340);
+            this.startButton.on("click", this._clickStartButton, this); // event listener
+            this.addChild(this.startButton);
             stage.addChild(this);
         };
         Menu.prototype.update = function () {
@@ -28,7 +28,6 @@ var states;
         // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++++++++
         // Callback function / Event Handler for Start Button Click
         Menu.prototype._clickStartButton = function (event) {
-            createjs.Sound.play("yay"); // activate static class play 
             changeState(config.PLAY_STATE);
         };
         return Menu;

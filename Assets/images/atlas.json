@@ -1,0 +1,34 @@
+{
+
+"images": [
+    "atlas.png"
+],
+
+"frames": [
+    [1, 1, 148, 142, 0, 0, 0],
+    [1, 145, 78, 70, 0, 0, 0],
+    [81, 145, 150, 50, 0, 0, 0],
+    [151, 1, 260, 134, 0, 0, 0],
+    [413, 1, 120, 132, 0, 0, 0],
+    [233, 137, 84, 84, 0, 0, 0],
+    [319, 137, 84, 84, 0, 0, 0],
+    [405, 137, 84, 84, 0, 0, 0]
+],
+
+"animations": {
+    "sun2": [0],
+    "carrot": [1],
+    "StartButton": [2],
+    "cloud": [3],
+    "flyMan_still_fly": [4],
+    "bronze": [5],
+    "gold": [6],
+    "silver": [7]
+},
+
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:1f455d7bc4b5646adcf0d29fc8d741ac:2f8de47a8fc015ba41eca8a88546a760:cbce6b53f0f49e0bf15173c25c41f876$",
+        "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+]
+
+}
