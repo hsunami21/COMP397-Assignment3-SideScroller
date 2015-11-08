@@ -27,7 +27,7 @@ var objects;
          * Resets the coin position
          */
         SilverCoin.prototype.reset = function () {
-            this.x = 2200;
+            this.x = 2400;
             this.y = Math.floor(Math.random() * 590) + 5;
         };
         /**

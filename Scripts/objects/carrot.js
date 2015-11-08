@@ -27,7 +27,7 @@ var objects;
          */
         Carrot.prototype.reset = function () {
             this.dx = Math.floor(Math.random() * 5) + 5;
-            this.x = 1600;
+            this.x = 1700;
             this.y = Math.floor(Math.random() * 590) + 5;
         };
         /**

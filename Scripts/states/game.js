@@ -34,7 +34,7 @@ var states;
             this.player = new objects.Player();
             this.addChild(this.player);
             // add cloud enemy to scene
-            for (var cloud = 0; cloud < 2; cloud++) {
+            for (var cloud = 0; cloud < 3; cloud++) {
                 this.clouds[cloud] = new objects.CloudEnemy();
                 this.addChild(this.clouds[cloud]);
             }
@@ -42,9 +42,11 @@ var states;
             this.sun = new objects.SunEnemy();
             this.addChild(this.sun);
             stage.addChild(this);
+            this.collision = new config.Collision(this.player, this.clouds, this.sun, this.bronzeCoin, this.silverCoin, this.goldCoin, this.carrot);
         };
         Game.prototype.update = function () {
             this.background.update();
+            this.collision.update();
             this.bronzeCoin.update();
             this.silverCoin.update();
             this.goldCoin.update();
@@ -52,7 +54,7 @@ var states;
             this.player.update();
             this.sun.update();
             // update each cloud enemy
-            for (var cloud = 0; cloud < 2; cloud++) {
+            for (var cloud = 0; cloud < 3; cloud++) {
                 this.clouds[cloud].update();
             }
         };

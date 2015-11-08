@@ -29,7 +29,7 @@ var objects;
         SunEnemy.prototype.reset = function () {
             this.dx = Math.floor(Math.random() * 5) + 5; // horizontal speed
             this.dy = Math.floor(Math.random() * -3) + Math.floor(Math.random() * 3);
-            this.x = 2000;
+            this.x = 2400;
             this.y = Math.floor(Math.random() * 600) + 1;
         };
         /**

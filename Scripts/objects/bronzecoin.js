@@ -27,7 +27,7 @@ var objects;
          * Resets the coin position
          */
         BronzeCoin.prototype.reset = function () {
-            this.x = 1100;
+            this.x = 1200;
             this.y = Math.floor(Math.random() * 590) + 5;
         };
         /**

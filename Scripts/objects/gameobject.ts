@@ -2,8 +2,8 @@ module objects {
 	// GAME OBJECT CLASS
 	export class GameObject extends createjs.Sprite {
 		// PROTECTED INSTANCE VARIABLES
-		protected width: number;
-		protected height: number; 
+		public width: number;
+		public height: number; 
 		
 		// CONSTRUCTOR
 		constructor(imageString: string) {

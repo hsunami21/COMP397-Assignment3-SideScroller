@@ -27,7 +27,7 @@ var objects;
          * Resets the coin position
          */
         GoldCoin.prototype.reset = function () {
-            this.x = 3300;
+            this.x = 3600;
             this.y = Math.floor(Math.random() * 590) + 5;
         };
         /**

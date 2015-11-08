@@ -1,4 +1,5 @@
 /// <reference path="../config/config.ts" />
+/// <reference path="../config/collision.ts" />
 /// <reference path="../typings/jquery/jquery.d.ts" />
 /// <reference path="../typings/stats/stats.d.ts" />
 /// <reference path="../typings/createjs-lib/createjs-lib.d.ts" />

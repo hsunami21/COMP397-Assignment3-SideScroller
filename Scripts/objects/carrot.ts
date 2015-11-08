@@ -26,9 +26,9 @@ module objects {
 		/**
 		 * Resets the coin position 
 		 */
-		private reset(): void {
+		public reset(): void {
 			this.dx = Math.floor(Math.random() * 5) + 5;
-			this.x = 1600;
+			this.x = 1700;
 			this.y = Math.floor(Math.random() * 590) + 5;
 		}
 		

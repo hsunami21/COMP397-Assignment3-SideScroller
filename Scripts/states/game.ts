@@ -3,6 +3,7 @@
     export class Game extends objects.Scene {
         // PRIVATE INSTANCE VARIABLES
         private background: objects.Background;
+        private collision: config.Collision;
         private bronzeCoin: objects.BronzeCoin;
         private silverCoin: objects.SilverCoin;
         private goldCoin: objects.GoldCoin;
@@ -11,9 +12,11 @@
         private clouds: objects.CloudEnemy[] = [];
         private sun: objects.SunEnemy;
 
+
         // CONSTRUCTOR
         constructor() {
             super();
+
         }
 
         // PUBLIC METHODS
@@ -43,22 +46,25 @@
             this.addChild(this.player);
             
             // add cloud enemy to scene
-            for (var cloud = 0; cloud < 2; cloud++) {
+            for (var cloud = 0; cloud < 3; cloud++) {
                 this.clouds[cloud] = new objects.CloudEnemy();
                 this.addChild(this.clouds[cloud]);
             }
             
             // add sun enemy to scene
             this.sun = new objects.SunEnemy();
-            this.addChild(this.sun);
-            
+            this.addChild(this.sun);            
             
             stage.addChild(this);
+            
+            this.collision = new config.Collision(this.player, this.clouds, this.sun, this.bronzeCoin, this.silverCoin, 
+                                                    this.goldCoin, this.carrot);
         }
 
 
         public update(): void {
             this.background.update();
+            this.collision.update();
             this.bronzeCoin.update();
             this.silverCoin.update();
             this.goldCoin.update();
@@ -67,7 +73,7 @@
             this.sun.update();
             
             // update each cloud enemy
-            for (var cloud = 0; cloud < 2; cloud++) {
+            for (var cloud = 0; cloud < 3; cloud++) {
                 this.clouds[cloud].update();
             }
         }
