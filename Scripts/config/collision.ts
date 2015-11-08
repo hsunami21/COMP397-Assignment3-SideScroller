@@ -135,6 +135,7 @@ module config {
                         this.playerAndSun();
                         this.playerAndCoin();
                         this.playerAndCarrot();
+                        scoreboard.score = this.scoreboard.score;
                 }
         }
 }

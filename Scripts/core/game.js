@@ -35,6 +35,7 @@ var atlas; // sprite atlas
 var menu;
 var game;
 var over;
+var scoreboard;
 var data = {
     "images": [
         "../../Assets/images/atlas.png"
@@ -86,6 +87,7 @@ function init() {
     createjs.Ticker.setFPS(60); // set frame rate to 60 fps
     createjs.Ticker.on("tick", gameLoop); // update gameLoop every frame
     setupStats(); // sets up our stats counting
+    scoreboard = new objects.Scoreboard();
     state = config.MENU_STATE;
     changeState(state);
 }

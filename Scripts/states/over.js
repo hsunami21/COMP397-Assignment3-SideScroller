@@ -17,17 +17,19 @@ var states;
             // add background to scene
             this.background = new objects.Background();
             this.addChild(this.background);
-            // level label
-            this.lblGameOver = new objects.Label("Game Over", "60px Consolas", "#000000", 550, 240);
+            // game over label
+            this.lblGameOver = new objects.Label("GAME OVER", "60px Consolas", "#FF0000", 550, 200);
             this.addChild(this.lblGameOver); // add label to the stage
-            // back button
-            this.restartButton = new objects.Button("RestartButton", 550, 340);
+            // score label
+            this.lblScore = new objects.Label("FINAL SCORE: " + scoreboard.score.toString(), "60px Consolas", "#000000", 550, 300);
+            this.addChild(this.lblScore);
+            // restart button
+            this.restartButton = new objects.Button("RestartButton", 550, 400);
             this.restartButton.on("click", this._clickRestartButton, this); // event listener
             this.addChild(this.restartButton);
             stage.addChild(this);
         };
         Over.prototype.update = function () {
-            this.lblGameOver.rotation += 5;
             this.background.update();
         };
         // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++++++++

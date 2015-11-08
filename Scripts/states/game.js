@@ -62,6 +62,7 @@ var states;
                 this.clouds[cloud].update();
             }
             if (this.scoreboard.lives <= 0) {
+                //scoreboard.score = this.scoreboard.score;
                 createjs.Sound.stop();
                 createjs.Sound.play("game_over");
                 changeState(config.OVER_STATE);

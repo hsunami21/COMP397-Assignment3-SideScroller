@@ -22,6 +22,7 @@ module objects {
 		public update(): void {
 			this.labelText = "Lives: " + this.lives.toString() + " Score: " + this.score.toString();
 			this.text = this.labelText;
+			
 		}
 	}
 }

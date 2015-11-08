@@ -19,8 +19,20 @@ var states;
             this.background = new objects.Background();
             this.addChild(this.background);
             // fly man label
-            this.lblFlyMan = new objects.Label("FLY MAN", "60px Consolas", "#000000", 350, 240);
+            this.lblFlyMan = new objects.Label("FLY MAN", "60px Consolas", "#FF6600", 350, 240);
             this.addChild(this.lblFlyMan); // add label to the stage
+            // instructions label
+            this.lblInstructions = new objects.Label("HOW TO PLAY", "60px Consolas", "#FF0000", 800, 100);
+            this.addChild(this.lblInstructions);
+            // how to play label
+            this.lblHowToPlay = new objects.Label("Use the mouse to avoid the clouds \n\n" +
+                "and the sun while picking up coins! \n\n" +
+                "You will lose the game if you run \n\n" +
+                "out of lives or if you hit the sun. \n\n\n\n" +
+                "You will gain a life each time you \n\n" +
+                "eat a carrot, so make sure to eat \n\n" +
+                "as many carrots as possible!", "24px Consolas", "#000000", 825, 300);
+            this.addChild(this.lblHowToPlay);
             // start button
             this.startButton = new objects.Button("StartButton", 350, 340);
             this.startButton.on("click", this._clickStartButton, this); // event listener

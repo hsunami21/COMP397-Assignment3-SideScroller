@@ -4,6 +4,7 @@
         // PRIVATE INSTANCE VARIABLES
         private background: objects.Background;
         private lblGameOver: objects.Label;
+        private lblScore: objects.Label;
         private restartButton: objects.Button;
 
         // CONSTRUCTOR
@@ -18,12 +19,16 @@
             this.background = new objects.Background();
             this.addChild(this.background);
 
-            // level label
-            this.lblGameOver = new objects.Label("Game Over", "60px Consolas", "#000000", 550, 240);
+            // game over label
+            this.lblGameOver = new objects.Label("GAME OVER", "60px Consolas", "#FF0000", 550, 200);
             this.addChild(this.lblGameOver); // add label to the stage
 
-            // back button
-            this.restartButton = new objects.Button("RestartButton", 550, 340);
+            // score label
+            this.lblScore = new objects.Label("FINAL SCORE: " + scoreboard.score.toString(), "60px Consolas", "#000000", 550, 300);
+            this.addChild(this.lblScore);
+
+            // restart button
+            this.restartButton = new objects.Button("RestartButton", 550, 400);
             this.restartButton.on("click", this._clickRestartButton, this); // event listener
             this.addChild(this.restartButton);
 
@@ -33,7 +38,6 @@
 
 
         public update(): void {
-            this.lblGameOver.rotation += 5;
             this.background.update();
         }
 

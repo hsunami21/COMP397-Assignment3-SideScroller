@@ -112,6 +112,7 @@ var config;
             this.playerAndSun();
             this.playerAndCoin();
             this.playerAndCarrot();
+            scoreboard.score = this.scoreboard.score;
         };
         return Collision;
     })();
