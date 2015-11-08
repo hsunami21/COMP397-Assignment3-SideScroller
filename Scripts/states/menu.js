@@ -14,6 +14,9 @@ var states;
         }
         // PUBLIC METHODS
         Menu.prototype.start = function () {
+            // add background to scene
+            this.background = new objects.Background();
+            this.addChild(this.background);
             // fly man label
             this.lblFlyMan = new objects.Label("FLY MAN", "60px Consolas", "#000000", 350, 240);
             this.addChild(this.lblFlyMan); // add label to the stage
@@ -24,6 +27,7 @@ var states;
             stage.addChild(this);
         };
         Menu.prototype.update = function () {
+            this.background.update();
         };
         // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++++++++
         // Callback function / Event Handler for Start Button Click

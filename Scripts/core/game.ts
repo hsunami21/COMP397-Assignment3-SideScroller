@@ -10,6 +10,12 @@
 
 /// <reference path="../objects/gameobject.ts" />
 /// <reference path="../objects/background.ts" />
+/// <reference path="../objects/bronzecoin.ts" />
+/// <reference path="../objects/silvercoin.ts" />
+/// <reference path="../objects/goldcoin.ts" />
+/// <reference path="../objects/carrot.ts" />
+/// <reference path="../objects/cloudenemy.ts" />
+/// <reference path="../objects/sunenemy.ts" />
 /// <reference path="../objects/player.ts" />
 /// <reference path="../objects/label.ts" />
 /// <reference path="../objects/button.ts" />

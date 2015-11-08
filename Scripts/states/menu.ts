@@ -2,6 +2,7 @@
     // MENU CLASS
     export class Menu extends objects.Scene {
         // PRIVATE INSTANCE VARIABLES
+        private background: objects.Background;
         private lblFlyMan: objects.Label;
         private startButton: objects.Button;
 
@@ -13,6 +14,10 @@
         // PUBLIC METHODS
         public start(): void {
 
+         // add background to scene
+            this.background = new objects.Background();
+            this.addChild(this.background);
+            
             // fly man label
             this.lblFlyMan = new objects.Label("FLY MAN", "60px Consolas", "#000000", 350, 240);
             this.addChild(this.lblFlyMan); // add label to the stage
@@ -27,6 +32,7 @@
 
 
         public update(): void {
+            this.background.update();
         }
 
         // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++++++++
