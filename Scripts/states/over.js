@@ -14,22 +14,26 @@ var states;
         }
         // PUBLIC METHODS
         Over.prototype.start = function () {
+            // add background to scene
+            this.background = new objects.Background();
+            this.addChild(this.background);
             // level label
-            this._levelLabel = new objects.Label("Game Over", "60px Consolas", "#000000", 320, 240);
-            this.addChild(this._levelLabel); // add label to the stage
+            this.lblGameOver = new objects.Label("Game Over", "60px Consolas", "#000000", 550, 240);
+            this.addChild(this.lblGameOver); // add label to the stage
             // back button
-            this._backButton = new objects.Button("BackButton", 320, 340);
-            this._backButton.on("click", this._clickBackButton, this); // event listener
-            this.addChild(this._backButton);
+            this.restartButton = new objects.Button("RestartButton", 550, 340);
+            this.restartButton.on("click", this._clickRestartButton, this); // event listener
+            this.addChild(this.restartButton);
             stage.addChild(this);
         };
         Over.prototype.update = function () {
-            this._levelLabel.rotation += 5;
+            this.lblGameOver.rotation += 5;
+            this.background.update();
         };
         // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++++++++
         // Callback function / Event Handler for Back Button Click
-        Over.prototype._clickBackButton = function (event) {
-            changeState(config.PLAY_STATE);
+        Over.prototype._clickRestartButton = function (event) {
+            changeState(config.MENU_STATE);
         };
         return Over;
     })(objects.Scene);

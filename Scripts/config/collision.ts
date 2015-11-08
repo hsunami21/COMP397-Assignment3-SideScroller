@@ -17,10 +17,12 @@ module config {
 		private silverCoin: objects.SilverCoin;
 		private goldCoin: objects.GoldCoin;
                 private carrot: objects.Carrot;
+                private scoreboard: objects.Scoreboard;
 	
 		// CONSTRUCTOR
 		constructor(player: objects.Player, clouds, sun: objects.SunEnemy, bronzeCoin: objects.BronzeCoin, 
-                                silverCoin: objects.SilverCoin, goldCoin: objects.GoldCoin, carrot: objects.Carrot) {
+                                silverCoin: objects.SilverCoin, goldCoin: objects.GoldCoin, carrot: objects.Carrot, 
+                                scoreboard: objects.Scoreboard) {
 			this.player = player;
 			this.clouds = clouds;
                         this.sun = sun;
@@ -28,6 +30,7 @@ module config {
 			this.silverCoin = silverCoin;
 			this.goldCoin = goldCoin;
 			this.carrot = carrot;
+                        this.scoreboard = scoreboard;
 		}	
 		
 		// Utility method - Distance calculation between two points
@@ -56,8 +59,8 @@ module config {
                         p2.x = cloud.x;
                         p2.y = cloud.y;
                         if (this.distance(p1, p2) < ((this.player.height / 2) + (cloud.height / 2))) {
-                                //createjs.Sound.play("thunder");
-                                //this.scoreboard.lives -= 1;
+                                createjs.Sound.play("cloud");
+                                this.scoreboard.lives -= 1;
                                 cloud.reset();
                         }
                 }
@@ -71,8 +74,7 @@ module config {
                         p2.x = this.sun.x;
                         p2.y = this.sun.y;
                         if (this.distance(p1, p2) < ((this.player.height / 2) + (this.sun.height / 2))) {
-                                //createjs.Sound.play("thunder");
-                                //this.scoreboard.lives -= this.scoreboard.lives;
+                                this.scoreboard.lives -= this.scoreboard.lives;
                                 this.sun.reset();
                         }
                 }
@@ -93,19 +95,19 @@ module config {
                         p4.y = this.goldCoin.y;
                         if (this.distance(p1, p2) < ((this.player.height / 2) + (this.bronzeCoin.height / 2))) {
                                 createjs.Sound.play("coin");
-                                //this.scoreboard.score += 100;
+                                this.scoreboard.score += 100;
                                 this.bronzeCoin.reset();
                         }
                         
                         if (this.distance(p1, p3) < ((this.player.height / 2) + (this.silverCoin.height / 2))) {
                                 createjs.Sound.play("coin");
-                                //this.scoreboard.score += 250;
+                                this.scoreboard.score += 300;
                                 this.silverCoin.reset();
                         }
                        
                         if (this.distance(p1, p4) < ((this.player.height / 2) + (this.goldCoin.height / 2))) {
                                 createjs.Sound.play("coin");
-                                //this.scoreboard.score += 500;
+                                this.scoreboard.score += 500;
                                 this.goldCoin.reset();
                         }
                 }
@@ -119,8 +121,8 @@ module config {
                         p2.x = this.carrot.x;
                         p2.y = this.carrot.y;
                         if (this.distance(p1, p2) < ((this.player.height / 2) + (this.carrot.height / 2))) {
-                                //createjs.Sound.play("thunder");
-                                //this.scoreboard.lives += 1;
+                                createjs.Sound.play("carrot");
+                                this.scoreboard.lives += 1;
                                 this.carrot.reset();
                         }
                 }

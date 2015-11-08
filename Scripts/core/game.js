@@ -9,6 +9,7 @@
 /// <reference path="../typings/preloadjs/preloadjs.d.ts" />
 /// <reference path="../objects/gameobject.ts" />
 /// <reference path="../objects/background.ts" />
+/// <reference path="../objects/scoreboard.ts" />
 /// <reference path="../objects/bronzecoin.ts" />
 /// <reference path="../objects/silvercoin.ts" />
 /// <reference path="../objects/goldcoin.ts" />
@@ -62,9 +63,13 @@ var data = {
 // manifest of all our assets
 var manifest = [
     { id: "StartButton", src: "../../Assets/images/StartButton.png" },
+    { id: "RestartButton", src: "../../Assets/images/RestartButton.png" },
     { id: "background", src: "../../Assets/images/bg.jpg" },
     { id: "game_over", src: "../../Assets/audio/game_over.ogg" },
-    { id: "coin", src: "../../Assets/audio/zapThreeToneUp.mp3" }
+    { id: "coin", src: "../../Assets/audio/oo_la_la.mp3" },
+    { id: "carrot", src: "../../Assets/audio/mmm.mp3" },
+    { id: "cloud", src: "../../Assets/audio/ouch.mp3" },
+    { id: "music", src: "../../Assets/audio/bg_music.mp3" }
 ];
 function preload() {
     assets = new createjs.LoadQueue();

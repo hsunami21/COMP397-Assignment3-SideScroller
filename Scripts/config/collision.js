@@ -10,7 +10,7 @@ var config;
     // COLLISION CLASS
     var Collision = (function () {
         // CONSTRUCTOR
-        function Collision(player, clouds, sun, bronzeCoin, silverCoin, goldCoin, carrot) {
+        function Collision(player, clouds, sun, bronzeCoin, silverCoin, goldCoin, carrot, scoreboard) {
             this.clouds = [];
             this.player = player;
             this.clouds = clouds;
@@ -19,6 +19,7 @@ var config;
             this.silverCoin = silverCoin;
             this.goldCoin = goldCoin;
             this.carrot = carrot;
+            this.scoreboard = scoreboard;
         }
         // Utility method - Distance calculation between two points
         Collision.prototype.distance = function (p1, p2) {
@@ -41,8 +42,8 @@ var config;
             p2.x = cloud.x;
             p2.y = cloud.y;
             if (this.distance(p1, p2) < ((this.player.height / 2) + (cloud.height / 2))) {
-                //createjs.Sound.play("thunder");
-                //this.scoreboard.lives -= 1;
+                createjs.Sound.play("cloud");
+                this.scoreboard.lives -= 1;
                 cloud.reset();
             }
         };
@@ -55,8 +56,7 @@ var config;
             p2.x = this.sun.x;
             p2.y = this.sun.y;
             if (this.distance(p1, p2) < ((this.player.height / 2) + (this.sun.height / 2))) {
-                //createjs.Sound.play("thunder");
-                //this.scoreboard.lives -= this.scoreboard.lives;
+                this.scoreboard.lives -= this.scoreboard.lives;
                 this.sun.reset();
             }
         };
@@ -76,17 +76,17 @@ var config;
             p4.y = this.goldCoin.y;
             if (this.distance(p1, p2) < ((this.player.height / 2) + (this.bronzeCoin.height / 2))) {
                 createjs.Sound.play("coin");
-                //this.scoreboard.score += 100;
+                this.scoreboard.score += 100;
                 this.bronzeCoin.reset();
             }
             if (this.distance(p1, p3) < ((this.player.height / 2) + (this.silverCoin.height / 2))) {
                 createjs.Sound.play("coin");
-                //this.scoreboard.score += 250;
+                this.scoreboard.score += 300;
                 this.silverCoin.reset();
             }
             if (this.distance(p1, p4) < ((this.player.height / 2) + (this.goldCoin.height / 2))) {
                 createjs.Sound.play("coin");
-                //this.scoreboard.score += 500;
+                this.scoreboard.score += 500;
                 this.goldCoin.reset();
             }
         };
@@ -99,8 +99,8 @@ var config;
             p2.x = this.carrot.x;
             p2.y = this.carrot.y;
             if (this.distance(p1, p2) < ((this.player.height / 2) + (this.carrot.height / 2))) {
-                //createjs.Sound.play("thunder");
-                //this.scoreboard.lives += 1;
+                createjs.Sound.play("carrot");
+                this.scoreboard.lives += 1;
                 this.carrot.reset();
             }
         };

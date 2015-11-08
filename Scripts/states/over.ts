@@ -2,8 +2,9 @@
     // OVER CLASS
     export class Over extends objects.Scene {
         // PRIVATE INSTANCE VARIABLES
-        _levelLabel: objects.Label;
-        _backButton: objects.Button;
+        private background: objects.Background;
+        private lblGameOver: objects.Label;
+        private restartButton: objects.Button;
 
         // CONSTRUCTOR
         constructor() {
@@ -12,15 +13,19 @@
 
         // PUBLIC METHODS
         public start(): void {
+            
+            // add background to scene
+            this.background = new objects.Background();
+            this.addChild(this.background);
 
             // level label
-            this._levelLabel = new objects.Label("Game Over", "60px Consolas", "#000000", 320, 240);
-            this.addChild(this._levelLabel); // add label to the stage
+            this.lblGameOver = new objects.Label("Game Over", "60px Consolas", "#000000", 550, 240);
+            this.addChild(this.lblGameOver); // add label to the stage
 
             // back button
-            this._backButton = new objects.Button("BackButton", 320, 340);
-            this._backButton.on("click", this._clickBackButton, this); // event listener
-            this.addChild(this._backButton);
+            this.restartButton = new objects.Button("RestartButton", 550, 340);
+            this.restartButton.on("click", this._clickRestartButton, this); // event listener
+            this.addChild(this.restartButton);
 
             stage.addChild(this);
 
@@ -28,13 +33,14 @@
 
 
         public update(): void {
-            this._levelLabel.rotation += 5;
+            this.lblGameOver.rotation += 5;
+            this.background.update();
         }
 
         // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++++++++
         // Callback function / Event Handler for Back Button Click
-        private _clickBackButton(event: createjs.MouseEvent): void {
-            changeState(config.PLAY_STATE);
+        private _clickRestartButton(event: createjs.MouseEvent): void {
+            changeState(config.MENU_STATE);
         }
 
 

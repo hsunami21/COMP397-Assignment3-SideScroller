@@ -14,7 +14,9 @@
         // PUBLIC METHODS
         public start(): void {
 
-         // add background to scene
+            createjs.Sound.play("music", createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 0.5, 0);
+            
+            // add background to scene
             this.background = new objects.Background();
             this.addChild(this.background);
             

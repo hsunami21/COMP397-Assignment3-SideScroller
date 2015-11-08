@@ -4,6 +4,7 @@
         // PRIVATE INSTANCE VARIABLES
         private background: objects.Background;
         private collision: config.Collision;
+        private scoreboard: objects.Scoreboard;
         private bronzeCoin: objects.BronzeCoin;
         private silverCoin: objects.SilverCoin;
         private goldCoin: objects.GoldCoin;
@@ -11,7 +12,7 @@
         private player: objects.Player;        
         private clouds: objects.CloudEnemy[] = [];
         private sun: objects.SunEnemy;
-
+      
 
         // CONSTRUCTOR
         constructor() {
@@ -24,6 +25,10 @@
             // add background to scene
             this.background = new objects.Background();
             this.addChild(this.background);
+                        
+            // add scoreboard to scene
+            this.scoreboard = new objects.Scoreboard();
+            this.addChild(this.scoreboard); 
             
             // add bronze coin to scene
             this.bronzeCoin = new objects.BronzeCoin();
@@ -53,18 +58,19 @@
             
             // add sun enemy to scene
             this.sun = new objects.SunEnemy();
-            this.addChild(this.sun);            
+            this.addChild(this.sun);           
             
             stage.addChild(this);
             
             this.collision = new config.Collision(this.player, this.clouds, this.sun, this.bronzeCoin, this.silverCoin, 
-                                                    this.goldCoin, this.carrot);
+                                                    this.goldCoin, this.carrot, this.scoreboard);
         }
 
 
         public update(): void {
             this.background.update();
             this.collision.update();
+            this.scoreboard.update();
             this.bronzeCoin.update();
             this.silverCoin.update();
             this.goldCoin.update();
@@ -75,6 +81,12 @@
             // update each cloud enemy
             for (var cloud = 0; cloud < 3; cloud++) {
                 this.clouds[cloud].update();
+            }
+            
+            if (this.scoreboard.lives <= 0) {
+                createjs.Sound.stop();
+                createjs.Sound.play("game_over");
+                changeState(config.OVER_STATE);
             }
         }
 
