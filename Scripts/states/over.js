@@ -14,7 +14,6 @@ var states;
         }
         // PUBLIC METHODS
         Over.prototype.start = function () {
-            stage.cursor = "default";
             // add background to scene
             this.background = new objects.Background();
             this.addChild(this.background);

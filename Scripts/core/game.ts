@@ -15,6 +15,7 @@
         Commit #8: Added instructions to menu scene and final score to game over scene
         Commit #9: Modified layout and difficulty slightly
         Commit #10: Debugged non-collision with a cloud
+        Commit #11: Modified code to display score above all other assets
 */
 
 /// <reference path="../config/config.ts" />

@@ -14,6 +14,7 @@
         Commit #7: Added sound effects and game over scene
         Commit #8: Added instructions to menu scene and final score to game over scene
         Commit #9: Modified layout and difficulty slightly
+        Commit #10: Debugged non-collision with a cloud
 */
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -32,13 +33,9 @@ var states;
         }
         // PUBLIC METHODS
         Game.prototype.start = function () {
-            stage.cursor = "none";
             // add background to scene
             this.background = new objects.Background();
             this.addChild(this.background);
-            // add scoreboard to scene
-            this.scoreboard = new objects.Scoreboard();
-            this.addChild(this.scoreboard);
             // add bronze coin to scene
             this.bronzeCoin = new objects.BronzeCoin();
             this.addChild(this.bronzeCoin);
@@ -51,9 +48,6 @@ var states;
             // add carrot to scene
             this.carrot = new objects.Carrot();
             this.addChild(this.carrot);
-            // add player to scene
-            this.player = new objects.Player();
-            this.addChild(this.player);
             // add cloud enemy to scene
             for (var cloud = 0; cloud < 4; cloud++) {
                 this.clouds[cloud] = new objects.CloudEnemy();
@@ -62,6 +56,12 @@ var states;
             // add sun enemy to scene
             this.sun = new objects.SunEnemy();
             this.addChild(this.sun);
+            // add player to scene
+            this.player = new objects.Player();
+            this.addChild(this.player);
+            // add scoreboard to scene
+            this.scoreboard = new objects.Scoreboard();
+            this.addChild(this.scoreboard);
             stage.addChild(this);
             this.collision = new config.Collision(this.player, this.clouds, this.sun, this.bronzeCoin, this.silverCoin, this.goldCoin, this.carrot, this.scoreboard);
         };

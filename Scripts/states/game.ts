@@ -15,6 +15,7 @@
         Commit #8: Added instructions to menu scene and final score to game over scene
         Commit #9: Modified layout and difficulty slightly 
         Commit #10: Debugged non-collision with a cloud
+        Commit #11: Modified code to display score above all other assets
 */
 
 module states {
@@ -41,15 +42,10 @@ module states {
 
         // PUBLIC METHODS
         public start(): void {
-            stage.cursor = "none";
             
             // add background to scene
             this.background = new objects.Background();
             this.addChild(this.background);
-                        
-            // add scoreboard to scene
-            this.scoreboard = new objects.Scoreboard();
-            this.addChild(this.scoreboard); 
             
             // add bronze coin to scene
             this.bronzeCoin = new objects.BronzeCoin();
@@ -67,10 +63,6 @@ module states {
             this.carrot = new objects.Carrot();
             this.addChild(this.carrot);
             
-            // add player to scene
-            this.player = new objects.Player();
-            this.addChild(this.player);
-            
             // add cloud enemy to scene
             for (var cloud = 0; cloud < 4; cloud++) {
                 this.clouds[cloud] = new objects.CloudEnemy();
@@ -80,6 +72,14 @@ module states {
             // add sun enemy to scene
             this.sun = new objects.SunEnemy();
             this.addChild(this.sun);           
+                        
+            // add player to scene
+            this.player = new objects.Player();
+            this.addChild(this.player);
+            
+            // add scoreboard to scene
+            this.scoreboard = new objects.Scoreboard();
+            this.addChild(this.scoreboard); 
             
             stage.addChild(this);
             
