@@ -13,6 +13,7 @@
         Commit #6: Added collision functionality
         Commit #7: Added sound effects and game over scene
         Commit #8: Added instructions to menu scene and final score to game over scene
+        Commit #9: Modified layout and difficulty slightly
 */
 /// <reference path="../config/config.ts" />
 /// <reference path="../config/collision.ts" />

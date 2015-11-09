@@ -129,7 +129,7 @@ module config {
         
                 // Utility Function to Check Collisions
                 public update(): void {
-                        for (var count = 0; count < 3; count++) {
+                        for (var count = 0; count < 4; count++) {
                                 this.playerAndCloud(this.clouds[count]);
                         }
                         this.playerAndSun();
