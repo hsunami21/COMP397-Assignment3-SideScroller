@@ -1,3 +1,19 @@
+/*
+    Source name: Side Scroller
+    Author: Wendall Hsu 300739743
+    Last Modified By: Wendall Hsu
+    Date Last Modified: November 8, 2015
+    Program Description: Side scroller web application created using TypeScript and CreateJS
+    Revision History:
+        Commit #1: Initial commit
+        Commit #2: Added sprite assets
+        Commit #3: Added GameObject and Player classes
+        Commit #4: Added moving background functionality
+        Commit #5: Added all sprite objects to game scene
+        Commit #6: Added collision functionality
+        Commit #7: Added sound effects and game over scene
+        Commit #8: Added instructions to menu scene and final score to game over scene
+*/
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -15,6 +31,7 @@ var states;
         }
         // PUBLIC METHODS
         Game.prototype.start = function () {
+            stage.cursor = "none";
             // add background to scene
             this.background = new objects.Background();
             this.addChild(this.background);
@@ -37,7 +54,7 @@ var states;
             this.player = new objects.Player();
             this.addChild(this.player);
             // add cloud enemy to scene
-            for (var cloud = 0; cloud < 3; cloud++) {
+            for (var cloud = 0; cloud < 4; cloud++) {
                 this.clouds[cloud] = new objects.CloudEnemy();
                 this.addChild(this.clouds[cloud]);
             }
@@ -48,6 +65,11 @@ var states;
             this.collision = new config.Collision(this.player, this.clouds, this.sun, this.bronzeCoin, this.silverCoin, this.goldCoin, this.carrot, this.scoreboard);
         };
         Game.prototype.update = function () {
+            if (this.scoreboard.lives <= 0) {
+                createjs.Sound.stop();
+                createjs.Sound.play("game_over");
+                changeState(config.OVER_STATE);
+            }
             this.background.update();
             this.collision.update();
             this.scoreboard.update();
@@ -58,14 +80,8 @@ var states;
             this.player.update();
             this.sun.update();
             // update each cloud enemy
-            for (var cloud = 0; cloud < 3; cloud++) {
+            for (var cloud = 0; cloud < 4; cloud++) {
                 this.clouds[cloud].update();
-            }
-            if (this.scoreboard.lives <= 0) {
-                //scoreboard.score = this.scoreboard.score;
-                createjs.Sound.stop();
-                createjs.Sound.play("game_over");
-                changeState(config.OVER_STATE);
             }
         };
         return Game;

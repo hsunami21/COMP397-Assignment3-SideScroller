@@ -1,3 +1,19 @@
+/*
+    Source name: Side Scroller
+    Author: Wendall Hsu 300739743
+    Last Modified By: Wendall Hsu
+    Date Last Modified: November 8, 2015
+    Program Description: Side scroller web application created using TypeScript and CreateJS
+    Revision History:
+        Commit #1: Initial commit
+        Commit #2: Added sprite assets
+        Commit #3: Added GameObject and Player classes
+        Commit #4: Added moving background functionality
+        Commit #5: Added all sprite objects to game scene
+        Commit #6: Added collision functionality
+        Commit #7: Added sound effects and game over scene
+        Commit #8: Added instructions to menu scene and final score to game over scene
+*/
 /// <reference path="../config/config.ts" />
 /// <reference path="../config/collision.ts" />
 /// <reference path="../typings/jquery/jquery.d.ts" />

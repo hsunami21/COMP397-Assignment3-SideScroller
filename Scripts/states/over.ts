@@ -15,6 +15,8 @@
         // PUBLIC METHODS
         public start(): void {
             
+            stage.cursor = "default";
+            
             // add background to scene
             this.background = new objects.Background();
             this.addChild(this.background);
