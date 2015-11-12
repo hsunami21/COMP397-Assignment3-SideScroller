@@ -22,7 +22,7 @@ var states;
             this.lblFlyMan = new objects.Label("FLY MAN", "60px Consolas", "#FF6600", 300, 240);
             this.addChild(this.lblFlyMan); // add label to the stage
             // instructions label
-            this.lblHowToPlay = new objects.Label("HOW TO PLAY", "60px Consolas", "#FF0000", 750, 125);
+            this.lblHowToPlay = new objects.Label("HOW TO PLAY", "60px Consolas", "#FF0000", 750, 100);
             this.addChild(this.lblHowToPlay);
             // how to play label
             this.lblInstructions = new objects.Label("Use the mouse to avoid the clouds \n\n" +
@@ -30,8 +30,10 @@ var states;
                 "You will lose the game if you run \n\n" +
                 "out of lives or if you hit the sun. \n\n\n\n" +
                 "You will gain a life each time you \n\n" +
-                "eat a carrot, so make sure to eat \n\n" +
-                "as many carrots as possible!", "24px Consolas", "#000000", 775, 325);
+                "eat a carrot up to a maximum of 8 \n\n" +
+                "lives. Any additional carrot eaten \n\n" +
+                "will give you bonus points, so make \n\n" +
+                "sure to eat as many as possible!", "24px Consolas", "#000000", 775, 325);
             this.addChild(this.lblInstructions);
             // start button
             this.startButton = new objects.Button("StartButton", 300, 340);

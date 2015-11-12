@@ -15,7 +15,7 @@ var objects;
         }
         // PUBLIC METHODS
         /**
-         * Update method for GoldCoin Class
+         * Update method for Carrot Class
          */
         Carrot.prototype.update = function () {
             this.x -= this.dx;
@@ -23,15 +23,15 @@ var objects;
         };
         // PRIVATE METHODS
         /**
-         * Resets the coin position
+         * Resets the carrot position
          */
         Carrot.prototype.reset = function () {
             this.dx = Math.floor(Math.random() * 5) + 5;
-            this.x = 1700;
+            this.x = 2200;
             this.y = Math.floor(Math.random() * 590) + 5;
         };
         /**
-         * Checks to see if coin needs to be reset
+         * Checks to see if carrot needs to be reset
          */
         Carrot.prototype.checkBounds = function () {
             if (this.x <= (0 - this.width)) {
