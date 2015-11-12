@@ -29,7 +29,7 @@ module objects {
 		 * Resets the cloud position 
 		 */
 		 public reset(): void {
-			this.dx = Math.floor(Math.random() * 5) + 3; // horizontal speed
+			this.dx = Math.floor(Math.random() * 5) + 5; // horizontal speed
 			this.dy = Math.floor(Math.random() * -3) + Math.floor(Math.random() * 3); // vertical speed
 			this.x = 1200;
 			this.y = Math.floor(Math.random() * 600) + 1;

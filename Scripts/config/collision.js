@@ -100,7 +100,12 @@ var config;
             p2.y = this.carrot.y;
             if (this.distance(p1, p2) < ((this.player.height / 2) + (this.carrot.height / 2))) {
                 createjs.Sound.play("carrot");
-                this.scoreboard.lives += 1;
+                if (this.scoreboard.lives < 8) {
+                    this.scoreboard.lives += 1;
+                }
+                else {
+                    this.scoreboard.score += 150;
+                }
                 this.carrot.reset();
             }
         };
