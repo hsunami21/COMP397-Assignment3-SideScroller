@@ -16,6 +16,8 @@
         Commit #9: Modified layout and difficulty slightly 
         Commit #10: Debugged non-collision with a cloud
         Commit #11: Modified code to display score above all other assets
+        Commit #12: Added maximum life cap and bonus additional points for extra carrots eaten
+        Commit #13: Changed spawn rate of carrot and updated instructions
 */
 
 module states {
