@@ -49,6 +49,7 @@
 /// <reference path="../states/game.ts" />
 /// <reference path="../states/menu.ts" />
 
+// Testing heroku
 
 // GLOBAL GAME FRAMEWORK VARIABLES
 var assets: createjs.LoadQueue;
